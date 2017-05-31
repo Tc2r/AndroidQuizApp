@@ -7,8 +7,6 @@
     android:orientation="vertical"
     tools:context="com.tc2r.androidquizapp.fragments.QuestionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +21,7 @@
 
         <TextView
             android:id="@+id/question"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
 
@@ -52,7 +50,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -61,10 +58,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+
                         <LinearLayout
                             android:id="@+id/answer_a_layout"
                             android:layout_width="match_parent"
@@ -105,7 +99,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginLeft="10dp"
                             android:visibility="gone"/>
-                    </LinearLayout>
+
 
 
 
@@ -261,14 +255,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:text="New Quiz"/>
+            android:text="@string/question_new_quiz"/>
 
         <Button
             android:id="@+id/nextBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="NEXT"/>
+            android:text="@string/question_next"/>
 
     </RelativeLayout>
 </LinearLayout>
