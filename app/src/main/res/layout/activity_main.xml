@@ -27,7 +27,7 @@
                 android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="ANDROID QUIZ"
                 android:id="@+id/title_tv"/>
             <TextView
@@ -35,7 +35,7 @@
                 android:background="#0226db"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Score"
                 android:id="@+id/score_tv"
                 android:gravity="center_horizontal"/>

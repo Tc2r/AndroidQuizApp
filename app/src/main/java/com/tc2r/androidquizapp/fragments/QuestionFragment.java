@@ -1,6 +1,7 @@
 package com.tc2r.androidquizapp.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -45,7 +46,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 	private String quizQuestion;
 	private String quizAnswer, quizDetails;
 	private ArrayList<Answer> otherAnswers;
-	private Button nextBtn;
+	private Button nextBtn, newBtn;
 	private boolean[] answerCheck = new boolean[4];
 	private OnFragmentInteractionListener mListener;
 	private int keyPosition;
@@ -100,6 +101,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 			quizDetails = getArguments().getString(DETAILS);
 			otherAnswers = getArguments().getParcelableArrayList(FILLANSWERS);
 
+
 		}
 	}
 
@@ -120,9 +122,11 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 		answerD = (TextView) mView.findViewById(R.id.answer_d_summary);
 		detailsD = (TextView) mView.findViewById(R.id.answer_d_details);
 		nextBtn = (Button) mView.findViewById(R.id.nextBtn);
+		newBtn = (Button) mView.findViewById(R.id.newQuizBtn);
 
 		//Set Listeners
 		nextBtn.setOnClickListener(this);
+		newBtn.setOnClickListener(this);
 		answerA.setOnClickListener(this);
 		answerB.setOnClickListener(this);
 		answerC.setOnClickListener(this);
@@ -205,6 +209,13 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 		switch (view.getId()) {
 			case R.id.nextBtn:
 				((MainActivity) getActivity()).nextQuestion(correct);
+				break;
+			case R.id.newQuizBtn:
+				// start main Activity over
+				Intent intent = new Intent(getActivity(), MainActivity.class);
+				startActivity(intent);
+				// remove previous from backstack
+				getActivity().finish();
 				break;
 			case R.id.answer_a_summary:
 				if (detailsA.getVisibility() != View.VISIBLE) {

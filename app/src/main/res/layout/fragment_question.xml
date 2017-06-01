@@ -29,7 +29,7 @@
             android:gravity="center_horizontal"
             android:text="What Is An Activity?"
             android:textAlignment="center"
-            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold"/>
     </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -73,7 +73,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="A"
-                                android:textAppearance="@android:style/TextAppearance.Large"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textStyle="bold"/>
 
                             <View
@@ -87,7 +87,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:text="The answer is A."
-                                android:textAppearance="@android:style/TextAppearance.Large"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textStyle="bold"
                                 />
 
@@ -97,7 +97,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
                             android:visibility="gone"/>
 
 
@@ -120,7 +121,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="B"
-                                android:textAppearance="@android:style/TextAppearance.Large"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textStyle="bold"
                                 />
 
@@ -136,7 +137,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:text="The answer is B."
-                                android:textAppearance="@android:style/TextAppearance.Large"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textStyle="bold"
                                 />
 
@@ -146,7 +147,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
                             android:visibility="gone"/>
                     </LinearLayout>
                     <LinearLayout
@@ -167,7 +169,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="C"
-                                android:textAppearance="@android:style/TextAppearance.Large"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textStyle="bold"
                                 />
 
@@ -183,7 +185,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:text="The answer is A."
-                                android:textAppearance="@android:style/TextAppearance.Large"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textStyle="bold"
                                 />
 
@@ -193,7 +195,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
                             android:visibility="gone"/>
                     </LinearLayout>
                     <LinearLayout
@@ -214,7 +217,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="D"
-                                android:textAppearance="@android:style/TextAppearance.Large"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textStyle="bold"
                                 />
 
@@ -229,7 +232,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:text="The answer is A."
-                                android:textAppearance="@android:style/TextAppearance.Large"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textStyle="bold"/>
                         </LinearLayout>
                         <TextView
@@ -237,7 +240,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="15dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
                             android:visibility="gone"/>
                     </LinearLayout>
                 </LinearLayout>
