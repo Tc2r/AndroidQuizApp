@@ -2,8 +2,6 @@ package com.tc2r.androidquizapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,6 +14,9 @@ import com.tc2r.androidquizapp.models.Question;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener
 {
@@ -53,8 +54,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     setContentView(R.layout.activity_main);
 
     // Initalize and assignments
-    titleTv = (TextView) findViewById(R.id.title_tv);
-    scoreTv = (TextView) findViewById(R.id.score_tv);
+    titleTv = findViewById(R.id.title_tv);
+    scoreTv = findViewById(R.id.score_tv);
     testList = new ArrayList<>();
     quizList = new ArrayList<>();
     answersList = new ArrayList<>();
@@ -129,16 +130,16 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
       numOfCorrect++;
       score += pointPerQ;
       scorePer = (int) (score * 100);
-      scoreTv.setText(getString(R.string.score_display_text) + String.valueOf(scorePer));
+      scoreTv.setText(String.format("%s%s", getString(R.string.score_display_text), String.valueOf(scorePer)));
     }
     // if quiz is not complete, continue quiz with new QuestionFragment
     if (currentQuestion < QUIZ_SIZE)
     {
       newFragment = QuestionFragment.newInstance(testList.get(currentQuestion), answersList);
       currentQuestion++;
-      titleTv.setText(getString(R.string.question_display_text) + Integer.toString(
-              currentQuestion) + " of " + Integer.toString(QUIZ_SIZE));
-      fragContainer = (LinearLayout) findViewById(R.id.fragment_container);
+      titleTv.setText(String.format("%s%s of %s", getString(R.string.question_display_text), Integer.toString(
+              currentQuestion), Integer.toString(QUIZ_SIZE)));
+      fragContainer = findViewById(R.id.fragment_container);
       FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
       ft.replace(fragContainer.getId(), newFragment);
       ft.commit();

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,10 @@ import com.tc2r.androidquizapp.models.Answer;
 import com.tc2r.androidquizapp.models.Question;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
+
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -112,17 +114,17 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 		View mView = inflater.inflate(R.layout.fragment_question, container, false);
 
 		// Assign Variables to Object Ids
-		questionTV = (TextView) mView.findViewById(R.id.question);
-		answerA = (TextView) mView.findViewById(R.id.answer_a_summary);
-		detailsA = (TextView) mView.findViewById(R.id.answer_a_details);
-		answerB = (TextView) mView.findViewById(R.id.answer_b_summary);
-		detailsB = (TextView) mView.findViewById(R.id.answer_b_details);
-		answerC = (TextView) mView.findViewById(R.id.answer_c_summary);
-		detailsC = (TextView) mView.findViewById(R.id.answer_c_details);
-		answerD = (TextView) mView.findViewById(R.id.answer_d_summary);
-		detailsD = (TextView) mView.findViewById(R.id.answer_d_details);
-		nextBtn = (Button) mView.findViewById(R.id.nextBtn);
-		newBtn = (Button) mView.findViewById(R.id.newQuizBtn);
+		questionTV = mView.findViewById(R.id.question);
+		answerA = mView.findViewById(R.id.answer_a_summary);
+		detailsA = mView.findViewById(R.id.answer_a_details);
+		answerB = mView.findViewById(R.id.answer_b_summary);
+		detailsB = mView.findViewById(R.id.answer_b_details);
+		answerC = mView.findViewById(R.id.answer_c_summary);
+		detailsC = mView.findViewById(R.id.answer_c_details);
+		answerD = mView.findViewById(R.id.answer_d_summary);
+		detailsD = mView.findViewById(R.id.answer_d_details);
+		nextBtn = mView.findViewById(R.id.nextBtn);
+		newBtn = mView.findViewById(R.id.newQuizBtn);
 
 		//Set Listeners
 		nextBtn.setOnClickListener(this);
@@ -208,14 +210,14 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 		// Switch statement for what is clicked.
 		switch (view.getId()) {
 			case R.id.nextBtn:
-				((MainActivity) getActivity()).nextQuestion(correct);
+				((MainActivity) Objects.requireNonNull(getActivity())).nextQuestion(correct);
 				break;
 			case R.id.newQuizBtn:
 				// start main Activity over
 				Intent intent = new Intent(getActivity(), MainActivity.class);
 				startActivity(intent);
 				// remove previous from backstack
-				getActivity().finish();
+				Objects.requireNonNull(getActivity()).finish();
 				break;
 			case R.id.answer_a_summary:
 				if (detailsA.getVisibility() != View.VISIBLE) {
