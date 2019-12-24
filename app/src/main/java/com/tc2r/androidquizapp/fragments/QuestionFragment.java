@@ -71,7 +71,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 		// Add arguments to bundle of new instance.
 		Bundle args = new Bundle();
 		args.putString(QUESTION, question.getQuestion());
-		args.putString(KEY, question.getKey());
+		args.putString(KEY, question.getShortAns());
 		args.putString(DETAILS, question.getDetails());
 		args.putParcelableArrayList(FILLANSWERS, fillAnswers);
 
