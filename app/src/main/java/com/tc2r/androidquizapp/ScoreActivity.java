@@ -3,10 +3,11 @@ package com.tc2r.androidquizapp;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Tc2r on 5/31/2017.
@@ -41,15 +42,15 @@ public class ScoreActivity extends AppCompatActivity{
 		setContentView(R.layout.activity_score);
 
 		// Assign/initiate variables
-		totalQuestionsTV = (TextView) findViewById(R.id.numofquestions_tv);
-		commentTV = (TextView) findViewById(R.id.comment_tv);
-		totalCorrectTV = (TextView) findViewById(R.id.numcorrect_tv);
-		finalGradeTV = (TextView) findViewById(R.id.finalgrade_tv);
+		totalQuestionsTV = findViewById(R.id.numofquestions_tv);
+		commentTV = findViewById(R.id.comment_tv);
+		totalCorrectTV = findViewById(R.id.numcorrect_tv);
+		finalGradeTV = findViewById(R.id.finalgrade_tv);
 
 
 		//Set UI Objects Text values
-		totalQuestionsTV.setText("There were "+ quizSize + " Questions.");
-		totalCorrectTV.setText("Correct Answers: "+ numCorrect);
+		totalQuestionsTV.setText("There were " + quizSize + " Questions.");
+		totalCorrectTV.setText("Correct Answers: " + numCorrect);
 		finalGradeTV.setText(scorePer + "%");
 
 		if(scorePer >= 80) {
