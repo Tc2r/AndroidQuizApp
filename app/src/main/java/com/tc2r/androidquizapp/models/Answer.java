@@ -1,4 +1,4 @@
-package com.tc2r.androidquizapp.models;
+package com.dreams.androidquizapp.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

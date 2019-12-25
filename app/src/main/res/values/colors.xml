@@ -8,4 +8,9 @@
     <color name="secondaryDarkColor">#6a0080</color>
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#ffffff</color>
+    <color name="colorBackground">#F5F4F4</color>
+    <color name="colorForeground">#FFFFFF</color>
+    <color name="bright_green">#08f600</color>
+    <color name="lime_green">#0cf022</color>
+    <color name="bright_red">#eb0e0b</color>
 </resources>

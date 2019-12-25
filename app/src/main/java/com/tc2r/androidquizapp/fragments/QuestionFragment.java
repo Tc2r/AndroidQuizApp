@@ -1,5 +1,6 @@
-package com.tc2r.androidquizapp.fragments;
+package com.dreams.androidquizapp.fragments;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,17 +11,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.tc2r.androidquizapp.MainActivity;
-import com.tc2r.androidquizapp.OnFragmentInteractionListener;
-import com.tc2r.androidquizapp.R;
-import com.tc2r.androidquizapp.models.Answer;
-import com.tc2r.androidquizapp.models.Question;
+import com.dreams.androidquizapp.MainActivity;
+import com.dreams.androidquizapp.OnFragmentInteractionListener;
+import com.dreams.androidquizapp.R;
+import com.dreams.androidquizapp.models.Answer;
+import com.dreams.androidquizapp.models.Question;
 
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 
-import androidx.fragment.app.Fragment;
 
 
 /**

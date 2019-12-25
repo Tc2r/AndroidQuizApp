@@ -6,50 +6,48 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tc2r.androidquizapp.ScoreActivity"
+    tools:context="com.dreams.androidquizapp.ScoreActivity"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="#fff">
+    android:background="@color/colorBackground">
 
     <androidx.cardview.widget.CardView
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:cardBackgroundColor="#000"
+        app:cardBackgroundColor="@color/colorForeground"
         android:elevation="8dp"
         app:cardElevation="8dp"
-        app:cardCornerRadius="6dp"
-        >
+        app:cardCornerRadius="6dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/finished_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/score_title"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
 
             <TextView
                 android:id="@+id/comment_tv"
-                android:layout_below="@id/finished_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="WHATEVER"
-                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_below="@id/comment_tv"
-                android:layout_centerHorizontal="true"
                 android:padding="5dp">
 
 
@@ -89,31 +87,33 @@
                         android:text="@string/score_percentage"
                         android:textAllCaps="true"
                         android:textSize="60dp"
-                        android:textColor="#08f600"
+                        android:textColor="@color/bright_green"
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center_horizontal|bottom"
                         />
 
                 </LinearLayout>
                 <LinearLayout
+                    style="?android:buttonBarStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
                     <Button
+                        style="?android:buttonBarButtonStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="#0cf022"
+                        android:textColor="@color/lime_green"
                         android:text="@string/new_quiz"
                         android:onClick="startOver"/>
 
                     <Button
+                        style="?android:buttonBarButtonStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/quit_app"
-                        android:textColor="#eb0e0b"
+                        android:textColor="@color/bright_red"
                         android:id="@+id/button"
                         android:onClick="closeApp"/>
 
@@ -124,7 +124,7 @@
 
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>

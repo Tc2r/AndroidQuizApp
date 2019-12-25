@@ -1,6 +1,6 @@
-package com.tc2r.androidquizapp.controllers;
+package com.dreams.androidquizapp.controllers;
 
-import com.tc2r.androidquizapp.models.Question;
+import com.dreams.androidquizapp.models.Question;
 
 import java.util.ArrayList;
 

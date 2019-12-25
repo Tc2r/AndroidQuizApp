@@ -1,4 +1,4 @@
-package com.tc2r.androidquizapp.models;
+package com.dreams.androidquizapp.models;
 
 /**
  * Created by Tc2r on 5/19/2017.
