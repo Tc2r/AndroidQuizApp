@@ -1,24 +1,24 @@
-package com.tc2r.androidquizapp;
+package com.dreams.androidquizapp;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tc2r.androidquizapp.controllers.AnswersController;
-import com.tc2r.androidquizapp.controllers.QuestionsController;
-import com.tc2r.androidquizapp.fragments.QuestionFragment;
-import com.tc2r.androidquizapp.models.Answer;
-import com.tc2r.androidquizapp.models.Question;
+import com.dreams.androidquizapp.controllers.AnswersController;
+import com.dreams.androidquizapp.controllers.QuestionsController;
+import com.dreams.androidquizapp.fragments.QuestionFragment;
+import com.dreams.androidquizapp.models.Answer;
+import com.dreams.androidquizapp.models.Question;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener
+public class MainActivity extends Activity implements com.dreams.androidquizapp.OnFragmentInteractionListener
 {
 
   // Static Variables
@@ -140,14 +140,14 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
       titleTv.setText(String.format("%s%s of %s", getString(R.string.question_display_text), Integer.toString(
               currentQuestion), Integer.toString(QUIZ_SIZE)));
       fragContainer = findViewById(R.id.fragment_container);
-      FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+      FragmentTransaction ft = getFragmentManager().beginTransaction();
       ft.replace(fragContainer.getId(), newFragment);
       ft.commit();
     } else
     {
       // Quiz is over, go to final page!
       // create intent
-      Intent intent = new Intent(this, ScoreActivity.class);
+      Intent intent = new Intent(this, com.dreams.androidquizapp.ScoreActivity.class);
 
       // add variables to send.
       intent.putExtra("scorePercentage", scorePer);

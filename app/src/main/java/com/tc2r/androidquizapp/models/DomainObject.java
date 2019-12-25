@@ -1,4 +1,4 @@
-package com.tc2r.androidquizapp.models;
+package com.dreams.androidquizapp.models;
 
 public interface DomainObject
 {

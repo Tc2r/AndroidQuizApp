@@ -1,4 +1,4 @@
-package com.tc2r.androidquizapp;
+package com.dreams.androidquizapp;
 
 /**
  * This interface must be implemented by activities that contain this

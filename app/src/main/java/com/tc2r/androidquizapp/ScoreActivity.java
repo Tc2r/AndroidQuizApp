@@ -1,5 +1,6 @@
-package com.tc2r.androidquizapp;
+package com.dreams.androidquizapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Tc2r on 5/31/2017.
@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * Description: Displays the score after a quiz is taken.
  */
 
-public class ScoreActivity extends AppCompatActivity{
+public class ScoreActivity extends Activity {
 	// UI Variables
 	private TextView totalQuestionsTV, totalCorrectTV, finalGradeTV, commentTV;
 
@@ -71,7 +71,7 @@ public class ScoreActivity extends AppCompatActivity{
 
 	public void startOver(View view) {
 		// Returns to MainActivity page.
-		Intent intent = new Intent(this, MainActivity.class);
+		Intent intent = new Intent(this, com.dreams.androidquizapp.MainActivity.class);
 		startActivity(intent);
 	}
 

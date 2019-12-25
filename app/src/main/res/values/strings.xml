@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Android Quiz App</string>
-    <string name="score_display_text">"Score: "</string>
-    <string name="question_display_text">"Question "</string>
+    <string name="score_display_text">"SCORE: "</string>
+    <string name="question_display_text">"QUESTION "</string>
     <string name="quit_app">Quit App</string>
     <string name="new_quiz">New Quiz</string>
     <string name="score_correct_answers">Correct Answers: 10</string>
