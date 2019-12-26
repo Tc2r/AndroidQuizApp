@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
 import com.dreams.androidquizapp.controllers.AnswersController;
 import com.dreams.androidquizapp.controllers.QuestionsController;
 import com.dreams.androidquizapp.fragments.QuestionFragment;
@@ -45,6 +46,8 @@ public class MainActivity extends Activity implements com.dreams.androidquizapp.
   private QuestionsController questionsController;
   private AnswersController answersController;
 
+  private RequestQueue mQueue;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -61,30 +64,34 @@ public class MainActivity extends Activity implements com.dreams.androidquizapp.
     answersList = new ArrayList<>();
     random = new Random();
 
+    // Get List of questions to populate Quiz
+    getQuestions();
     // get Wrong answers from server
     getAnswers();
-    getQuestions();
-    createQuiz();
-
   }
 
   public void getAnswers()
   {
-
     answersController = new AnswersController();
-    answersList = answersController.getAnswers();
+    answersController.getAnswers(this);
   }
 
   public void getQuestions()
   {
-
     questionsController = new QuestionsController();
     quizList = questionsController.getQuestions();
   }
 
+  public void updateQuizAnswers(ArrayList answers){
+    answersList = answers;
+
+    if(quizList.size() > 0 && answersList.size() > 0){
+      createQuiz();
+    }
+  }
+
   private void createQuiz()
   {
-
     Log.wtf(" Size: ", "QuestionList is: " + quizList.size());
     Log.wtf(" Size: ", "AnswerList is: " + answersList.size());
     // set booleanArray to be same size as quizList
@@ -98,7 +105,6 @@ public class MainActivity extends Activity implements com.dreams.androidquizapp.
     // sets the score system for quiz.
     // TODO: 5/31/2017 maybe remove this and simply divide correct answers by total questions
     pointPerQ = 1.0 / QUIZ_SIZE;
-
 
     while (i < QUIZ_SIZE)
     {
