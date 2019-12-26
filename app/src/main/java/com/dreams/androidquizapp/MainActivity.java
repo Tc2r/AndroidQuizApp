@@ -19,7 +19,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class MainActivity extends Activity implements com.dreams.androidquizapp.OnFragmentInteractionListener
+public class MainActivity extends Activity
+        implements com.dreams.androidquizapp.OnFragmentInteractionListener
 {
 
   // Static Variables
@@ -72,26 +73,32 @@ public class MainActivity extends Activity implements com.dreams.androidquizapp.
 
   public void getAnswers()
   {
+
     answersController = new AnswersController();
     answersController.getAnswers(this);
   }
 
   public void getQuestions()
   {
+
     questionsController = new QuestionsController();
     quizList = questionsController.getQuestions();
   }
 
-  public void updateQuizAnswers(ArrayList answers){
+  public void updateQuizAnswers(ArrayList answers)
+  {
+
     answersList = answers;
 
-    if(quizList.size() > 0 && answersList.size() > 0){
+    if (quizList.size() > 0 && answersList.size() > 0)
+    {
       createQuiz();
     }
   }
 
   private void createQuiz()
   {
+
     Log.wtf(" Size: ", "QuestionList is: " + quizList.size());
     Log.wtf(" Size: ", "AnswerList is: " + answersList.size());
     // set booleanArray to be same size as quizList
@@ -136,15 +143,18 @@ public class MainActivity extends Activity implements com.dreams.androidquizapp.
       numOfCorrect++;
       score += pointPerQ;
       scorePer = (int) (score * 100);
-      scoreTv.setText(String.format("%s%s", getString(R.string.score_display_text), String.valueOf(scorePer)));
+      scoreTv.setText(String.format("%s%s", getString(R.string.score_display_text),
+                                    String.valueOf(scorePer)
+                                   ));
     }
     // if quiz is not complete, continue quiz with new QuestionFragment
     if (currentQuestion < QUIZ_SIZE)
     {
       newFragment = QuestionFragment.newInstance(testList.get(currentQuestion), answersList);
       currentQuestion++;
-      titleTv.setText(String.format("%s%s of %s", getString(R.string.question_display_text), Integer.toString(
-              currentQuestion), Integer.toString(QUIZ_SIZE)));
+      titleTv.setText(String.format("%s%s of %s", getString(R.string.question_display_text),
+                                    Integer.toString(currentQuestion), Integer.toString(QUIZ_SIZE)
+                                   ));
       fragContainer = findViewById(R.id.fragment_container);
       FragmentTransaction ft = getFragmentManager().beginTransaction();
       ft.replace(fragContainer.getId(), newFragment);
