@@ -4,11 +4,16 @@ import com.dreams.androidquizapp.models.Question;
 
 import java.util.ArrayList;
 
-public class QuestionsController {
-	private ArrayList<Question> questionsList;
-	public ArrayList<Question> getQuestions() {
-		questionsList = new ArrayList<>();
-		loadQuestions();
+public class QuestionsController
+{
+
+  private ArrayList<Question> questionsList;
+
+  public ArrayList<Question> getQuestions()
+  {
+
+    questionsList = new ArrayList<>();
+    loadQuestions();
 
 //      questionService.listAll();
 //      // Same as getAnswers
@@ -57,53 +62,42 @@ public class QuestionsController {
 //      };
 //      task.execute();
 
-		return questionsList;
-	}
+    return questionsList;
+  }
 
-	private void loadQuestions() {
-		Question question1 = new Question.Builder(1,
-						"multi",
-						"What is Android?",
-						"Android is a stack of software for mobile devices which includes an Operating System, middleware and some key applications. The application executes within its own process and its own instance of Dalvik Virtual Machine.")
-						.shortAns("A stack of software for mobile devices.")
-						.build();
+  private void loadQuestions()
+  {
 
-		questionsList.add(question1);
+    Question question1 = new Question.Builder(1, "multi", "What is Android?",
+                                              "Android is a stack of software for mobile devices which includes an Operating System, middleware and some key applications. The application executes within its own process and its own instance of Dalvik Virtual Machine."
+    ).shortAns("A stack of software for mobile devices.").build();
 
-		Question question2 = new Question.Builder(2,
-						"multi",
-						"What is a Service?",
-						"Android is a stack of software for mobile devices which includes an Operating System, middleware and some key applications. The application executes within its own process and its own instance of Dalvik Virtual Machine.A component that runs in the background to perform long term running operations, Services continue while app is destroyed.")
-						.shortAns("It performs background functionalities.")
-						.build();
-		questionsList.add(question2);
+    questionsList.add(question1);
 
-		Question question3 = new Question.Builder(3,
-						"multi",
-						"What is the APK format?",
-						"The Android packaging key is compressed with classes,UI's, supportive assets and manifest.All files are compressed to a single file is called APK.")
-						.shortAns("It is compressed with classes,UI's, supportive assets and manifest.")
-						.build();
-		questionsList.add(question3);
+    Question question2 = new Question.Builder(2, "multi", "What is a Service?",
+                                              "Android is a stack of software for mobile devices which includes an Operating System, middleware and some key applications. The application executes within its own process and its own instance of Dalvik Virtual Machine.A component that runs in the background to perform long term running operations, Services continue while app is destroyed."
+    ).shortAns("It performs background functionalities.").build();
+    questionsList.add(question2);
+
+    Question question3 = new Question.Builder(3, "multi", "What is the APK format?",
+                                              "The Android packaging key is compressed with classes,UI's, supportive assets and manifest.All files are compressed to a single file is called APK."
+    ).shortAns("It is compressed with classes,UI's, supportive assets and manifest.").build();
+    questionsList.add(question3);
 
 
-		Question question4 = new Question.Builder(4,
-						"multi",
-						"What is an intent?",
-						"It is connected to either the external world of application or internal world of application ,Such as, opening a pdf is an intent and connect to the web browser.etc.")
-						.shortAns("It is a declaration to do something.")
-						.build();
-		questionsList.add(question4);
+    Question question4 = new Question.Builder(4, "multi", "What is an intent?",
+                                              "It is connected to either the external world of application or internal world of application ,Such as, opening a pdf is an intent and connect to the web browser.etc."
+    ).shortAns("It is a declaration to do something.").build();
+    questionsList.add(question4);
 
-		Question question5 = new Question.Builder(5,
-						"multi",
-						"What is an android manifest file?",
-						"Every application must have an AndroidManifest.xml file (with precisely that name) in its root directory. The manifest file presents essential information about your app to the Android system, information the system must have before it can run any of the app's code.")
-						.shortAns(" It is a resource file which contains all the details needed by the android system about the application.")
-						.build();
-		questionsList.add(question5);
+    Question question5 = new Question.Builder(5, "multi", "What is an android manifest file?",
+                                              "Every application must have an AndroidManifest.xml file (with precisely that name) in its root directory. The manifest file presents essential information about your app to the Android system, information the system must have before it can run any of the app's code."
+    ).shortAns(
+            " It is a resource file which contains all the details needed by the android system about the application.")
+     .build();
+    questionsList.add(question5);
 
 
-	}
+  }
 
 }

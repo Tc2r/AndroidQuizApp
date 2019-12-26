@@ -9,29 +9,33 @@ import android.os.Parcelable;
  * Description:
  */
 
-public class Answer implements DomainObject, Parcelable {
-
+public class Answer implements com.dreams.androidquizapp.models.DomainObject, Parcelable
+{
 
   private Integer id;
-	private String answer;
-	private String details;
+  private String answer;
+  private String details;
 
 
-	@Override
+  @Override
   public Integer getId()
   {
+
     return id;
   }
 
   @Override
   public void setId(Integer id)
   {
+
     this.id = id;
 
   }
 
-	public Answer() {
-	}
+  public Answer()
+  {
+
+  }
 //	public Answer(String answer, String details) {
 //		this.answer = answer;
 //		this.details = details;
@@ -41,47 +45,68 @@ public class Answer implements DomainObject, Parcelable {
 //		this.details = "";
 //	}
 
-	public String getAnswer() {
-		return answer;
-	}
+  public String getAnswer()
+  {
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
+    return answer;
+  }
 
-	public String getDetails() {
-		return details;
-	}
+  public void setAnswer(String answer)
+  {
 
-	public void setDetails(String details) {
-		this.details = details;
-	}
+    this.answer = answer;
+  }
+
+  public String getDetails()
+  {
+
+    return details;
+  }
+
+  public void setDetails(String details)
+  {
+
+    this.details = details;
+  }
 
 
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeString(this.answer);
-		dest.writeString(this.details);
-	}
-	protected Answer(Parcel in) {
-		this.answer = in.readString();
-		this.details = in.readString();
-	}
+  @Override
+  public int describeContents()
+  {
 
-	public static final Parcelable.Creator<Answer> CREATOR = new Parcelable.Creator<Answer>() {
-		@Override
-		public Answer createFromParcel(Parcel source) {
-			return new Answer(source);
-		}
+    return 0;
+  }
 
-		@Override
-		public Answer[] newArray(int size) {
-			return new Answer[size];
-		}
-	};
+  @Override
+  public void writeToParcel(Parcel dest, int flags)
+  {
+
+    dest.writeString(this.answer);
+    dest.writeString(this.details);
+  }
+
+  protected Answer(Parcel in)
+  {
+
+    this.answer = in.readString();
+    this.details = in.readString();
+  }
+
+  public static final Parcelable.Creator<Answer> CREATOR = new Parcelable.Creator<Answer>()
+  {
+    @Override
+    public Answer createFromParcel(Parcel source)
+    {
+
+      return new Answer(source);
+    }
+
+    @Override
+    public Answer[] newArray(int size)
+    {
+
+      return new Answer[size];
+    }
+  };
 
 }
