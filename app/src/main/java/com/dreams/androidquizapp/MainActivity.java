@@ -24,7 +24,8 @@ public class MainActivity extends Activity
 {
 
   // Static Variables
-  private final static int QUIZ_SIZE = 4;
+  private final static int QUIZ_SIZE = 10;
+
 
   // UI Variables
   private LinearLayout fragContainer;
@@ -82,7 +83,15 @@ public class MainActivity extends Activity
   {
 
     questionsController = new QuestionsController();
-    quizList = questionsController.getQuestions();
+    questionsController.getQuestions(this);
+  }
+
+  public void updateQuizQuestions(ArrayList questions){
+    quizList = questions;
+
+    if(quizList.size() > 0 && answersList.size() > 0){
+      createQuiz();
+    }
   }
 
   public void updateQuizAnswers(ArrayList answers)

@@ -1,22 +1,36 @@
 package com.dreams.androidquizapp.controllers;
 
+import com.dreams.androidquizapp.MainActivity;
 import com.dreams.androidquizapp.models.Question;
+import com.dreams.androidquizapp.services.QuestionsServiceGsonGitImpl;
 
 import java.util.ArrayList;
 
-public class QuestionsController
-{
+public class QuestionsController {
 
-  private ArrayList<Question> questionsList;
+  public MainActivity mainActivity;
+	private ArrayList<Question> questionsList;
 
-  public ArrayList<Question> getQuestions()
+	public void getQuestions(MainActivity callingActivity)
   {
 
     questionsList = new ArrayList<>();
-    loadQuestions();
 
+    this.mainActivity = callingActivity;
+    this.questionsList = new ArrayList<>();
+
+    // Use GSON and Volley TO Get Answers List
+    QuestionsServiceGsonGitImpl questionsServiceGsonGit = new QuestionsServiceGsonGitImpl(this);
+    questionsServiceGsonGit.getQuestions();
+
+    //		loadQuestions();
+  }
+
+  public void passQuestions(ArrayList questionsList){
+    mainActivity.updateQuizQuestions(questionsList);
+  }
 //      questionService.listAll();
-//      // Same as getAnswers
+//      // Same as getQuestions
 //
 //      AsyncTask<String, Void, Void> task = new AsyncTask<String, Void, Void>() {
 //
@@ -62,10 +76,8 @@ public class QuestionsController
 //      };
 //      task.execute();
 
-    return questionsList;
-  }
 
-  private void loadQuestions()
+	private void loadQuestions()
   {
 
     Question question1 = new Question.Builder(1, "multi", "What is Android?",
@@ -96,8 +108,9 @@ public class QuestionsController
             " It is a resource file which contains all the details needed by the android system about the application.")
      .build();
     questionsList.add(question5);
-
-
   }
+
+
+
 
 }

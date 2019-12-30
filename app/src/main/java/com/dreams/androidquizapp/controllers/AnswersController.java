@@ -24,7 +24,7 @@ public class AnswersController
 
 //    // Use JSON and Volley to get Answers List
 //    com.dreams.androidquizapp.services.AnswersServiceJsonGitImpl answersServiceJsonGit = new com.dreams.androidquizapp.services.AnswersServiceJsonGitImpl(this);
-//    answersServiceJsonGit.getAnswers();
+//    answersServiceJsonGit.getQuestions();
 
     //loadAnswers();
   }
