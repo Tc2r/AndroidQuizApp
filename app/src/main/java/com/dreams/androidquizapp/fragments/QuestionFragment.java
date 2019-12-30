@@ -33,11 +33,15 @@ import java.util.Random;
 public class QuestionFragment extends Fragment implements View.OnClickListener
 {
 
+
   // Declare Constants
   private static final String QUESTION = "Question";
   private static final String KEY = "Key";
   private static final String DETAILS = "Details";
   private static final String FILLANSWERS = "Fill";
+  private static final String QUESTIONTYPE = "TYPE";
+  private static final String QUESTIONTRUEORFALSE = "false";
+  private static final String QUESTIONID = "ID";
 
   // Declare UI Variables
   private TextView questionTV;
@@ -45,15 +49,18 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
   private TextView answerA, answerB, answerC, answerD;
 
   // Declare Variables
-  private String quizQuestion;
+  private boolean questionTrueOrFalse;
+  private int questionId;
+  private String quizQuestion, questionType;
   private String quizAnswer, quizDetails;
   private ArrayList<Answer> otherAnswers;
-  private Button nextBtn, newBtn;
+  private Button nextBtn, newBtn, trueBtn, falseBtn;
   private boolean[] answerCheck = new boolean[4];
   private OnFragmentInteractionListener mListener;
   private int keyPosition;
   private boolean answered = false;
   private boolean correct = false;
+
 
   public QuestionFragment()
   {
@@ -77,6 +84,9 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
     args.putString(QUESTION, question.getQuestion());
     args.putString(KEY, question.getShortAns());
     args.putString(DETAILS, question.getDetails());
+    args.putString(QUESTIONTYPE, question.getQuestionType());
+    args.putString(QUESTIONTRUEORFALSE, question.getTrueOrFalse());
+    args.putInt(QUESTIONID, question.getId());
     args.putParcelableArrayList(FILLANSWERS, fillAnswers);
 
     fragment.setArguments(args);
@@ -107,20 +117,77 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
     // Get Arguments from bundle
     if (getArguments() != null)
     {
+      questionId = getArguments().getInt(QUESTIONID);
+      questionType = getArguments().getString(QUESTIONTYPE);
       quizQuestion = getArguments().getString(QUESTION);
       quizAnswer = getArguments().getString(KEY);
       quizDetails = getArguments().getString(DETAILS);
+      questionTrueOrFalse = Boolean.parseBoolean(getArguments().getString(QUESTIONTRUEORFALSE));
       otherAnswers = getArguments().getParcelableArrayList(FILLANSWERS);
-
-
     }
   }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
   {
-    // Inflate the layout for this fragment
-    View mView = inflater.inflate(R.layout.fragment_question, container, false);
+    // Inflate the layout for this fragment Based on the TYPE of Question.
+    View mView = null;
+    questionType = questionType.toLowerCase();
+    switch (questionType)
+    {
+      case "multi":
+        mView = multiLayout(inflater, container);
+        break;
+      case "fill":
+
+        break;
+      case "bool":
+        mView = boolLayout(inflater, container);
+        break;
+    }
+
+
+    return mView;
+  }
+
+  @Override
+  public void onDetach()
+  {
+
+    super.onDetach();
+    mListener = null;
+  }
+
+  private View boolLayout(LayoutInflater inflater, ViewGroup container)
+  {
+
+    View mView;
+    mView = inflater.inflate(R.layout.fragment_bool_question, container, false);
+
+    // Assign Variables to Object Ids
+    questionTV = mView.findViewById(R.id.question_tv);
+    nextBtn = mView.findViewById(R.id.nextBtn);
+    newBtn = mView.findViewById(R.id.newQuizBtn);
+    trueBtn = mView.findViewById(R.id.trueBtn);
+    falseBtn = mView.findViewById(R.id.falseBtn);
+
+    //Set Listeners
+    nextBtn.setOnClickListener(this);
+    newBtn.setOnClickListener(this);
+    trueBtn.setOnClickListener(this);
+    falseBtn.setOnClickListener(this);
+
+
+    // Set the Question Text
+    questionTV.setText(quizQuestion);
+    return mView;
+  }
+
+  private View multiLayout(LayoutInflater inflater, ViewGroup container)
+  {
+
+    View mView;
+    mView = inflater.inflate(R.layout.fragment_multi_question, container, false);
 
     // Assign Variables to Object Ids
     questionTV = mView.findViewById(R.id.question);
@@ -207,16 +274,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
         }
       }
     }
-
     return mView;
-  }
-
-  @Override
-  public void onDetach()
-  {
-
-    super.onDetach();
-    mListener = null;
   }
 
   @Override
@@ -226,6 +284,43 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
     // Switch statement for what is clicked.
     switch (view.getId())
     {
+      case R.id.trueBtn:
+        // Check if question has not been answered
+        if (!answered)
+        {
+          if (questionTrueOrFalse)
+          {
+            trueBtn.setBackgroundColor(Color.GREEN);
+
+            // Register the correct answer
+            correct = true;
+          } else
+          {
+            trueBtn.setBackgroundColor(Color.RED);
+          }
+
+          answered = true;
+        }
+        break;
+      case R.id.falseBtn:
+        // Check if question has not been answered
+        if (!answered)
+        {
+          if (!questionTrueOrFalse)
+          {
+            falseBtn.setBackgroundColor(Color.GREEN);
+
+            // Register the correct answer
+            correct = true;
+          } else
+          {
+            falseBtn.setBackgroundColor(Color.RED);
+          }
+
+          answered = true;
+        }
+
+        break;
       case R.id.nextBtn:
         ((MainActivity) Objects.requireNonNull(getActivity())).nextQuestion(correct);
         break;

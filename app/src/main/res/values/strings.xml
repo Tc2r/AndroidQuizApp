@@ -10,4 +10,6 @@
     <string name="score_title">QUIZ FINISHED!</string>
     <string name="question_next">NEXT</string>
     <string name="question_new_quiz">New Quiz</string>
+    <string name="question_bool_true">TRUE</string>
+    <string name="question_bool_false">FALSE</string>
 </resources>
