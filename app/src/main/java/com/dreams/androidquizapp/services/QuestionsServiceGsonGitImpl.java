@@ -28,7 +28,7 @@ public class QuestionsServiceGsonGitImpl
 
 	public QuestionsServiceGsonGitImpl(QuestionsController context) {
 		this.context = context;
-		mQueue = Volley.newRequestQueue(context.mainActivity);
+		mQueue = Volley.newRequestQueue(context.quizFragment.getContext());
 
 	}
 

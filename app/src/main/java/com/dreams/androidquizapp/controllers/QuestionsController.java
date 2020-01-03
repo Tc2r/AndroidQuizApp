@@ -1,22 +1,24 @@
 package com.dreams.androidquizapp.controllers;
 
-import com.dreams.androidquizapp.MainActivity;
+import com.dreams.androidquizapp.fragments.QuizFragment;
 import com.dreams.androidquizapp.models.Question;
 import com.dreams.androidquizapp.services.QuestionsServiceGsonGitImpl;
 
 import java.util.ArrayList;
 
+import androidx.fragment.app.Fragment;
+
 public class QuestionsController {
 
-  public MainActivity mainActivity;
+  public QuizFragment quizFragment;
 	private ArrayList<Question> questionsList;
 
-	public void getQuestions(MainActivity callingActivity)
+	public void getQuestions(Fragment callingFragment)
   {
 
     questionsList = new ArrayList<>();
 
-    this.mainActivity = callingActivity;
+    this.quizFragment = (QuizFragment) callingFragment;
     this.questionsList = new ArrayList<>();
 
     // Use GSON and Volley TO Get Answers List
@@ -27,7 +29,7 @@ public class QuestionsController {
   }
 
   public void passQuestions(ArrayList questionsList){
-    mainActivity.updateQuizQuestions(questionsList);
+    quizFragment.updateQuizQuestions(questionsList);
   }
 //      questionService.listAll();
 //      // Same as getQuestions

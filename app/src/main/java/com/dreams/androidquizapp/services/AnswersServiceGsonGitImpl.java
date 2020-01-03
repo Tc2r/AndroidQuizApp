@@ -31,8 +31,7 @@ public class AnswersServiceGsonGitImpl
   {
 
     this.context = context;
-    mQueue = Volley.newRequestQueue(context.mainActivity);
-
+    mQueue = Volley.newRequestQueue(context.fragment.getContext());
   }
 
   public void getAnswers()
