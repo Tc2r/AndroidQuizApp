@@ -1,8 +1,6 @@
 package com.dreams.androidquizapp.fragments;
 
-import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,15 +9,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.dreams.androidquizapp.MainActivity;
 import com.dreams.androidquizapp.OnFragmentInteractionListener;
 import com.dreams.androidquizapp.R;
 import com.dreams.androidquizapp.models.Answer;
 import com.dreams.androidquizapp.models.Question;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Random;
+
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -322,14 +320,19 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
 
         break;
       case R.id.nextBtn:
-        ((MainActivity) Objects.requireNonNull(getActivity())).nextQuestion(correct);
+        QuizFragment quizFragment = (QuizFragment)getParentFragment();
+        if (quizFragment != null)
+        {
+          quizFragment.nextQuestion(correct);
+        }
         break;
       case R.id.newQuizBtn:
-        // start main Activity over
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        startActivity(intent);
-        // remove previous from backstack
-        Objects.requireNonNull(getActivity()).finish();
+        QuizFragment refreshFragment = (QuizFragment)getParentFragment();
+        if (refreshFragment != null)
+        {
+          refreshFragment.restartFragment();
+        }
+
         break;
       case R.id.answer_a_summary:
         if (detailsA.getVisibility() != View.VISIBLE)

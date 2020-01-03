@@ -8,7 +8,7 @@
     android:background="@color/colorBackground"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.dreams.androidquizapp.ScoreActivity">
+    tools:context=".fragments.ScoreFragment">
 
     <androidx.cardview.widget.CardView
 
@@ -100,21 +100,20 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/reset_btn"
                         style="?android:buttonBarButtonStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:onClick="startOver"
                         android:text="@string/new_quiz"
                         android:textColor="@color/lime_green" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/close_btn"
                         style="?android:buttonBarButtonStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:onClick="closeApp"
                         android:text="@string/quit_app"
                         android:textColor="@color/bright_red" />
 

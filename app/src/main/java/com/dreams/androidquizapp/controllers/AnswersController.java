@@ -1,25 +1,28 @@
 package com.dreams.androidquizapp.controllers;
 
-import com.dreams.androidquizapp.MainActivity;
+import com.dreams.androidquizapp.fragments.QuizFragment;
 import com.dreams.androidquizapp.models.Answer;
 import com.dreams.androidquizapp.services.AnswersServiceGsonGitImpl;
 
 import java.util.ArrayList;
 
+import androidx.fragment.app.Fragment;
+
 public class AnswersController
 {
 
   private ArrayList<Answer> answersList;
-  public MainActivity mainActivity;
+  public QuizFragment fragment;
 
-  public void getAnswers(MainActivity callingActivity)
+  public void getAnswers(Fragment fragment)
   {
 
-    this.mainActivity = callingActivity;
+    this.fragment = (QuizFragment) fragment;
     this.answersList = new ArrayList<>();
 
     // Use GSON and Volley TO Get Answers List
-    AnswersServiceGsonGitImpl answersServiceGsonGit = new AnswersServiceGsonGitImpl(this);
+    AnswersServiceGsonGitImpl answersServiceGsonGit =
+            new AnswersServiceGsonGitImpl(this);
     answersServiceGsonGit.getAnswers();
 
 //    // Use JSON and Volley to get Answers List
@@ -32,7 +35,7 @@ public class AnswersController
   public void passAnswers(ArrayList answersList)
   {
 
-    mainActivity.updateQuizAnswers(answersList);
+    fragment.updateQuizAnswers(answersList);
   }
 
   private void loadAnswers()

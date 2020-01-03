@@ -27,7 +27,7 @@ public class AnswersServiceJsonGitImpl
 
     this.context = context;
     answerArrayList = new ArrayList<>();
-    mQueue = Volley.newRequestQueue(context.mainActivity);
+    mQueue = Volley.newRequestQueue(context.fragment.getContext());
 
   }
 
