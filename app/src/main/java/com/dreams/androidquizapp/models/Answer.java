@@ -12,10 +12,37 @@ import android.os.Parcelable;
 public class Answer implements com.dreams.androidquizapp.models.DomainObject, Parcelable
 {
 
+  public static final Parcelable.Creator<Answer> CREATOR = new Parcelable.Creator<Answer>()
+  {
+    @Override
+    public Answer createFromParcel(Parcel source)
+    {
+
+      return new Answer(source);
+    }
+
+    @Override
+    public Answer[] newArray(int size)
+    {
+
+      return new Answer[size];
+    }
+  };
   private Integer id;
   private String answer;
   private String details;
 
+  public Answer()
+  {
+
+  }
+
+  private Answer(Parcel in)
+  {
+
+    this.answer = in.readString();
+    this.details = in.readString();
+  }
 
   @Override
   public Integer getId()
@@ -31,19 +58,6 @@ public class Answer implements com.dreams.androidquizapp.models.DomainObject, Pa
     this.id = id;
 
   }
-
-  public Answer()
-  {
-
-  }
-//	public Answer(String answer, String details) {
-//		this.answer = answer;
-//		this.details = details;
-//	}
-//	public Answer(String answer) {
-//		this.answer = answer;
-//		this.details = "";
-//	}
 
   public String getAnswer()
   {
@@ -69,7 +83,6 @@ public class Answer implements com.dreams.androidquizapp.models.DomainObject, Pa
     this.details = details;
   }
 
-
   @Override
   public int describeContents()
   {
@@ -84,29 +97,5 @@ public class Answer implements com.dreams.androidquizapp.models.DomainObject, Pa
     dest.writeString(this.answer);
     dest.writeString(this.details);
   }
-
-  protected Answer(Parcel in)
-  {
-
-    this.answer = in.readString();
-    this.details = in.readString();
-  }
-
-  public static final Parcelable.Creator<Answer> CREATOR = new Parcelable.Creator<Answer>()
-  {
-    @Override
-    public Answer createFromParcel(Parcel source)
-    {
-
-      return new Answer(source);
-    }
-
-    @Override
-    public Answer[] newArray(int size)
-    {
-
-      return new Answer[size];
-    }
-  };
 
 }

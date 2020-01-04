@@ -14,8 +14,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class AnswersServiceJsonGitImpl
+class AnswersServiceJsonGitImpl
 {
 
   private RequestQueue mQueue;
@@ -27,7 +28,7 @@ public class AnswersServiceJsonGitImpl
 
     this.context = context;
     answerArrayList = new ArrayList<>();
-    mQueue = Volley.newRequestQueue(context.fragment.getContext());
+    mQueue = Volley.newRequestQueue(Objects.requireNonNull(context.fragment.getContext()));
 
   }
 
@@ -42,56 +43,47 @@ public class AnswersServiceJsonGitImpl
 
     String url = "https://raw.githubusercontent.com/Tc2r1/json_resources/master/android_answers.json";
 
-    final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                                                            new Response.Listener<JSONObject>()
-                                                            {
-                                                              @Override
-                                                              public void onResponse(JSONObject response)
-                                                              {
-                                                                // Parse Data from Json using Native code.
-                                                                try
-                                                                {
-                                                                  JSONArray jsonArray = response.getJSONArray(
-                                                                          "answers");
+    final JsonObjectRequest request =
+        new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>()
+        {
+          @Override
+          public void onResponse(JSONObject response)
+          {
+            // Parse Data from Json using Native code.
+            try
+            {
+              JSONArray jsonArray = response.getJSONArray("answers");
 
-                                                                  // Create Objects from each jsonObject in the jsonArray.
-                                                                  for (int i = 0; i < jsonArray
-                                                                                              .length(); i++
-                                                                  )
-                                                                  {
-                                                                    JSONObject answer = jsonArray
-                                                                                                .getJSONObject(
-                                                                                                        i);
-                                                                    String answerString = answer.getString(
-                                                                            "answer");
-                                                                    String detailsString = answer.getString(
-                                                                            "details");
-                                                                    Answer newAnswer = new Answer();
-                                                                    newAnswer.setAnswer(
-                                                                            answerString);
-                                                                    newAnswer.setDetails(
-                                                                            detailsString);
-                                                                    answerArrayList.add(newAnswer);
-                                                                  }
+              // Create Objects from each jsonObject in the
+              // jsonArray.
+              for (int i = 0; i < jsonArray.length(); i++
+              )
+              {
+                JSONObject answer = jsonArray.getJSONObject(i);
+                String answerString = answer.getString("answer");
+                String detailsString = answer.getString("details");
+                Answer newAnswer = new Answer();
+                newAnswer.setAnswer(answerString);
+                newAnswer.setDetails(detailsString);
+                answerArrayList.add(newAnswer);
+              }
 
-                                                                  context.passAnswers(
-                                                                          answerArrayList);
-                                                                } catch (JSONException e)
-                                                                {
-                                                                  e.printStackTrace();
-                                                                }
-                                                              }
-                                                            }, new Response.ErrorListener()
-    {
-      @Override
-      public void onErrorResponse(VolleyError error)
-      {
+              context.passAnswers(answerArrayList);
+            } catch (JSONException e)
+            {
+              e.printStackTrace();
+            }
+          }
+        }, new Response.ErrorListener()
+        {
+          @Override
+          public void onErrorResponse(VolleyError error)
+          {
 
-        error.printStackTrace();
+            error.printStackTrace();
 
-      }
-    }
-    );
+          }
+        });
     mQueue.add(request);
   }
 }

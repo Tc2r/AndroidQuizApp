@@ -20,8 +20,9 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main"
-        android:id="@+id/content_main_container"/>
+    <include
+        android:id="@+id/content_main_container"
+        layout="@layout/content_main" />
 
     <com.dreams.androidquizapp.tools.DragFloatingActionButton
         android:id="@+id/fab"

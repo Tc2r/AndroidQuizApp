@@ -20,7 +20,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity
-        implements OnFragmentInteractionListener, NewsFragment.OnListFragmentInteractionListener
+    implements OnFragmentInteractionListener, NewsFragment.OnListFragmentInteractionListener
 {
 
   private AppBarConfiguration mAppBarConfiguration;
@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity
       {
 
         navController.navigate(R.id.nav_quiz);
-        Snackbar.make(view, "Starting New Quiz", Snackbar.LENGTH_LONG).setAction("Action", null)
-                .show();
+        Snackbar.make(view, "Starting New Quiz", Snackbar.LENGTH_LONG).setAction("Action", null).show();
       }
     });
     DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -56,9 +55,8 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = findViewById(R.id.nav_view);
     // Passing each menu ID as a set of Ids because each
     // menu should be considered as top level destinations.
-    mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_news, R.id.nav_quiz,
-                                                           R.id.nav_share, R.id.nav_send
-    ).setDrawerLayout(drawer).build();
+    mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_news, R.id.nav_quiz, R.id.nav_share, R.id.nav_send)
+                               .setDrawerLayout(drawer).build();
 
     navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
@@ -71,8 +69,7 @@ public class MainActivity extends AppCompatActivity
   {
 
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-    return NavigationUI
-                   .navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
+    return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
   }
 
   @Override

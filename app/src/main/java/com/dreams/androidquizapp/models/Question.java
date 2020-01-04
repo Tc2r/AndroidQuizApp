@@ -16,6 +16,17 @@ public class Question
   private final String shortAns;
   private final String trueOrFalse;
 
+  private Question(Builder builder)
+  {
+
+    id = builder.id;
+    questionType = builder.questionType;
+    question = builder.question;
+    details = builder.details;
+    shortAns = builder.shortAns;
+    trueOrFalse = builder.trueOrFalse;
+  }
+
   public int getId()
   {
 
@@ -95,16 +106,5 @@ public class Question
 
       return new Question(this);
     }
-  }
-
-  private Question(Builder builder)
-  {
-
-    id = builder.id;
-    questionType = builder.questionType;
-    question = builder.question;
-    details = builder.details;
-    shortAns = builder.shortAns;
-    trueOrFalse = builder.trueOrFalse;
   }
 }

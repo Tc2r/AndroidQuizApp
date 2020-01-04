@@ -20,48 +20,65 @@ import org.json.JSONObject;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class QuestionsServiceGsonGitImpl
 {
-	private RequestQueue mQueue;
-	private QuestionsController context;
 
-	public QuestionsServiceGsonGitImpl(QuestionsController context) {
-		this.context = context;
-		mQueue = Volley.newRequestQueue(context.quizFragment.getContext());
+  private RequestQueue mQueue;
+  private QuestionsController context;
 
-	}
+  public QuestionsServiceGsonGitImpl(QuestionsController context)
+  {
 
-	public void getQuestions() {
-		jsonParse();
-	}
+    this.context = context;
+    mQueue = Volley.newRequestQueue(Objects.requireNonNull(context.quizFragment.getContext()));
 
-	private void jsonParse() {
-		String url = "https://raw.githubusercontent.com/Tc2r1/json_resources/master/android_questions.json";
+  }
 
-		final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-			@Override
-			public void onResponse(JSONObject response) {
-				try {
-					Gson gson = new Gson();
-					JSONArray jsonArray = response.getJSONArray("questions");
-					Type listType = new TypeToken<List<Question>>(){}.getType();
-					List<Question> questions = gson.fromJson(jsonArray.toString(), listType);
-					Log.wtf("Question:" , 1 + " is " + jsonArray.length());
+  public void getQuestions()
+  {
 
-					context.passQuestions((ArrayList) questions);
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
+    jsonParse();
+  }
 
-			}
-		}, new Response.ErrorListener() {
-			@Override
-			public void onErrorResponse(VolleyError error) {
-				error.printStackTrace();
+  private void jsonParse()
+  {
 
-			}
-		});
-		mQueue.add(request);
-	}
+    String url = "https://raw.githubusercontent.com/Tc2r1/json_resources/master/android_questions.json";
+
+    final JsonObjectRequest request =
+        new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>()
+        {
+          @Override
+          public void onResponse(JSONObject response)
+          {
+
+            try
+            {
+              Gson gson = new Gson();
+              JSONArray jsonArray = response.getJSONArray("questions");
+              Type listType = new TypeToken<List<Question>>() {}.getType();
+              List<Question> questions = gson.fromJson(jsonArray.toString(), listType);
+              Log.wtf("Question:", 1 + " is " + jsonArray.length());
+
+              context.passQuestions((ArrayList) questions);
+            } catch (JSONException e)
+            {
+              e.printStackTrace();
+            }
+
+          }
+        }, new Response.ErrorListener()
+        {
+          @Override
+          public void onErrorResponse(VolleyError error)
+          {
+
+            error.printStackTrace();
+
+          }
+        });
+    mQueue.add(request);
+  }
 }

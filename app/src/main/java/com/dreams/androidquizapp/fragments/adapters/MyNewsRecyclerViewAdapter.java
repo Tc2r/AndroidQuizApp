@@ -14,9 +14,8 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
+ * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the specified {@link
+ * OnListFragmentInteractionListener}. TODO: Replace the implementation with code for your data type.
  */
 public class MyNewsRecyclerViewAdapter extends RecyclerView.Adapter<MyNewsRecyclerViewAdapter.ViewHolder>
 {
@@ -24,8 +23,7 @@ public class MyNewsRecyclerViewAdapter extends RecyclerView.Adapter<MyNewsRecycl
   private final List<DummyItem> mValues;
   private final OnListFragmentInteractionListener mListener;
 
-  public MyNewsRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener
-                                  )
+  public MyNewsRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener)
   {
 
     mValues = items;
@@ -36,8 +34,7 @@ public class MyNewsRecyclerViewAdapter extends RecyclerView.Adapter<MyNewsRecycl
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
   {
 
-    View view = LayoutInflater.from(parent.getContext())
-                              .inflate(R.layout.fragment_news, parent, false);
+    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_news, parent, false);
     return new ViewHolder(view);
   }
 
@@ -86,12 +83,13 @@ public class MyNewsRecyclerViewAdapter extends RecyclerView.Adapter<MyNewsRecycl
 
     public ViewHolder(View view)
     {
+
       super(view);
       mView = view;
-      mIdView = (TextView) view.findViewById(R.id.update_id_tv);
-      mContentView = (TextView) view.findViewById(R.id.content);
-      mUpdateDateView = (TextView) view.findViewById(R.id.update_date_tv);
-      mUpdateTitleView = (TextView) view.findViewById(R.id.update_title_tv);
+      mIdView = view.findViewById(R.id.update_id_tv);
+      mContentView = view.findViewById(R.id.content);
+      mUpdateDateView = view.findViewById(R.id.update_date_tv);
+      mUpdateTitleView = view.findViewById(R.id.update_title_tv);
     }
 
     @Override

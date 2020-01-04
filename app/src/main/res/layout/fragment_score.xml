@@ -5,7 +5,6 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".fragments.ScoreFragment">
@@ -89,7 +88,7 @@
                         android:text="@string/score_percentage"
                         android:textAllCaps="true"
                         android:textColor="@color/bright_green"
-                        android:textSize="60dp" />
+                        android:textSize="60sp" />
 
                 </LinearLayout>
 

@@ -23,8 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 /**
- * Created by Tc2r on 5/31/2017.
- * Updated to Fragment on 1/1/2020.
+ * Created by Tc2r on 5/31/2017. Updated to Fragment on 1/1/2020.
  * <p>
  * Description: Displays the score after a quiz is taken.
  */
@@ -33,7 +32,7 @@ public class QuizFragment extends Fragment
 {
 
   // Static Variables
-  private final static int QUIZ_SIZE = 10;
+  private static final int QUIZ_SIZE = 10;
 
 
   // UI Variables
@@ -61,27 +60,24 @@ public class QuizFragment extends Fragment
   private RequestQueue mQueue;
 
 
-//	private HomeViewModel homeViewModel;
-//
-//	public View onCreateView(@NonNull LayoutInflater inflater,
-//													 ViewGroup container, Bundle savedInstanceState) {
-//		homeViewModel =
-//						ViewModelProviders.of(this).get(HomeViewModel.class);
-//		View root = inflater.inflate(R.layout.fragment_quiz, container, false);
-//		final TextView textView = root.findViewById(R.id.text_home);
-//		homeViewModel.getText().observe(this, new Observer<String>() {
-//			@Override
-//			public void onChanged(@Nullable String s) {
-//				textView.setText(s);
-//			}
-//		});
-//		return root;
-//	}
+  //  private HomeViewModel homeViewModel;
+  //
+  //  public View onCreateView(@NonNull LayoutInflater inflater,
+  //                           ViewGroup container, Bundle savedInstanceState) {
+  //    homeViewModel =
+  //            ViewModelProviders.of(this).get(HomeViewModel.class);
+  //    View root = inflater.inflate(R.layout.fragment_quiz, container, false);
+  //    final TextView textView = root.findViewById(R.id.text_home);
+  //    homeViewModel.getText().observe(this, new Observer<String>() {
+  //      @Override
+  //      public void onChanged(@Nullable String s) {
+  //        textView.setText(s);
+  //      }
+  //    });
+  //    return root;
+  //  }
 
-  public View onCreateView(@NonNull LayoutInflater inflater,
-                           ViewGroup container,
-                           Bundle savedInstanceState
-                          )
+  public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
   {
 
     View root = inflater.inflate(R.layout.fragment_quiz, container, false);
@@ -189,18 +185,15 @@ public class QuizFragment extends Fragment
 
     }
 
-    scoreTv.setText(String.format("%s%s%s", getString(R.string.score_display_text),
-                                  String.valueOf(scorePer),
-                                  getString(R.string.score_percent_display_text)
-                                 ));
+    scoreTv.setText(String.format("%s%s%s", getString(R.string.score_display_text), String.valueOf(scorePer),
+        getString(R.string.score_percent_display_text)));
     // if quiz is not complete, continue quiz with new QuestionFragment
     if (currentQuestion < QUIZ_SIZE)
     {
       newFragment = QuestionFragment.newInstance(testList.get(currentQuestion), answersList);
       currentQuestion++;
       titleTv.setText(String.format("%s%s of %s", getString(R.string.question_display_text),
-                                    Integer.toString(currentQuestion), Integer.toString(QUIZ_SIZE)
-                                   ));
+          Integer.toString(currentQuestion), Integer.toString(QUIZ_SIZE)));
       ft = getChildFragmentManager().beginTransaction();
       ft.replace(fragContainer.getId(), newFragment);
       ft.commit();

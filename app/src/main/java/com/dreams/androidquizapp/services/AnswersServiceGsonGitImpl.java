@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AnswersServiceGsonGitImpl
 {
@@ -31,7 +32,7 @@ public class AnswersServiceGsonGitImpl
   {
 
     this.context = context;
-    mQueue = Volley.newRequestQueue(context.fragment.getContext());
+    mQueue = Volley.newRequestQueue(Objects.requireNonNull(context.fragment.getContext()));
   }
 
   public void getAnswers()
@@ -45,47 +46,38 @@ public class AnswersServiceGsonGitImpl
 
     String url = "https://raw.githubusercontent.com/Tc2r1/json_resources/master/android_answers.json";
 
-    final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                                                            new Response.Listener<JSONObject>()
-                                                            {
-                                                              @Override
-                                                              public void onResponse(JSONObject response)
-                                                              {
+    final JsonObjectRequest request =
+        new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>()
+        {
+          @Override
+          public void onResponse(JSONObject response)
+          {
 
-                                                                try
-                                                                {
-                                                                  Gson gson = new Gson();
-                                                                  JSONArray jsonArray = response.getJSONArray(
-                                                                          "answers");
-                                                                  Type listType = new TypeToken<List<Answer>>() {}
-                                                                                          .getType();
-                                                                  List<Answer> answers = gson.fromJson(
-                                                                          jsonArray.toString(),
-                                                                          listType
-                                                                                                      );
-                                                                  Log.wtf("Answer:",
-                                                                          1 + " is " + answers.get(
-                                                                                  1).getDetails());
+            try
+            {
+              Gson gson = new Gson();
+              JSONArray jsonArray = response.getJSONArray("answers");
+              Type listType = new TypeToken<List<Answer>>() {}.getType();
+              List<Answer> answers = gson.fromJson(jsonArray.toString(), listType);
+              Log.wtf("Answer:", 1 + " is " + answers.get(1).getDetails());
 
-                                                                  context.passAnswers(
-                                                                          (ArrayList) answers);
-                                                                } catch (JSONException e)
-                                                                {
-                                                                  e.printStackTrace();
-                                                                }
+              context.passAnswers((ArrayList) answers);
+            } catch (JSONException e)
+            {
+              e.printStackTrace();
+            }
 
-                                                              }
-                                                            }, new Response.ErrorListener()
-    {
-      @Override
-      public void onErrorResponse(VolleyError error)
-      {
+          }
+        }, new Response.ErrorListener()
+        {
+          @Override
+          public void onErrorResponse(VolleyError error)
+          {
 
-        error.printStackTrace();
+            error.printStackTrace();
 
-      }
-    }
-    );
+          }
+        });
     mQueue.add(request);
   }
 }

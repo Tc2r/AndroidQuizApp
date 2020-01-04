@@ -5,9 +5,8 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorForeground"
-    android:orientation="vertical"
     android:layout_margin="8dp"
+    android:orientation="vertical"
     app:cardCornerRadius="10dp"
     app:cardElevation="8dp"
     tools:context=".fragments.NewsFragment">
@@ -23,34 +22,35 @@
             android:id="@+id/update_title_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Update"
             android:gravity="center_horizontal"
-            android:textColor="@color/primaryDarkColor"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+            android:text="Update"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/primaryDarkColor" />
 
         <TextView
             android:id="@+id/update_date_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="@tools:sample/date/mmddyy"
             android:gravity="center_horizontal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            tools:text="@tools:sample/date/mmddyy" />
 
         <TextView
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_margin"
-            android:gravity="left"
+            android:gravity="start"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             tools:text="@tools:sample/lorem/random" />
+
         <TextView
             android:id="@+id/update_id_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="#12345"
-            android:gravity="right"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            android:gravity="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:text="#12345" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
