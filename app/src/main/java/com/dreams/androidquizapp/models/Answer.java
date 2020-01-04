@@ -37,7 +37,7 @@ public class Answer implements com.dreams.androidquizapp.models.DomainObject, Pa
 
   }
 
-  protected Answer(Parcel in)
+  private Answer(Parcel in)
   {
 
     this.answer = in.readString();

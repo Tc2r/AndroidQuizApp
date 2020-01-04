@@ -50,7 +50,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
   private String quizAnswer, quizDetails;
   private ArrayList<Answer> otherAnswers;
   private Button nextBtn, newBtn, trueBtn, falseBtn;
-  private boolean[] answerCheck = new boolean[4];
+  private final boolean[] answerCheck = new boolean[4];
   private OnFragmentInteractionListener mListener;
   private int keyPosition;
   private boolean answered = false;

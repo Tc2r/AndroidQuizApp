@@ -20,12 +20,12 @@ public class DummyContent
   /**
    * An array of sample (dummy) items.
    */
-  public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+  public static final List<DummyItem> ITEMS = new ArrayList<>();
 
   /**
    * A map of sample (dummy) items, by ID.
    */
-  public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+  public static final Map<String, DummyItem> ITEM_MAP = new HashMap<>();
 
   private static final int COUNT = 25;
 
@@ -55,9 +55,7 @@ public class DummyContent
     String title = lorem.getWords(2, 5);
 
 
-    String dateString =
-        new StringBuilder().append(1 + random.nextInt(11)).append("/").append(1 + random.nextInt(29)).append("/")
-            .append(1 + random.nextInt(29)).toString();
+    String dateString = (1 + random.nextInt(11)) + "/" + (1 + random.nextInt(29)) + "/" + (1 + random.nextInt(29));
 
     String contents = lorem.getParagraphs(1, 1);
     String details = lorem.getParagraphs(1, 1);
@@ -69,9 +67,7 @@ public class DummyContent
   private static String makeContents(String contents)
   {
 
-    StringBuilder builder = new StringBuilder();
-    builder.append("Changlog: \n ").append(contents);
-    return builder.toString();
+    return "Changlog: \n " + contents;
   }
 
   /**

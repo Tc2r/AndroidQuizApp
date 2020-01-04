@@ -11,8 +11,23 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        quiet false
+        abortOnError false
+        absolutePaths false
+        lintConfig file('lint.xml')
+    }
+
     buildTypes {
         release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -42,3 +57,5 @@ dependencies {
 
 preBuild.dependsOn('checkstyle')
 check.dependsOn('checkstyle')
+assemble.dependsOn('lint')
+

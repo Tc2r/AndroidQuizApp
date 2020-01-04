@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AnswersServiceGsonGitImpl
 {
@@ -31,7 +32,7 @@ public class AnswersServiceGsonGitImpl
   {
 
     this.context = context;
-    mQueue = Volley.newRequestQueue(context.fragment.getContext());
+    mQueue = Volley.newRequestQueue(Objects.requireNonNull(context.fragment.getContext()));
   }
 
   public void getAnswers()

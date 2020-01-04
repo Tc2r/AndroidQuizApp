@@ -14,8 +14,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class AnswersServiceJsonGitImpl
+class AnswersServiceJsonGitImpl
 {
 
   private RequestQueue mQueue;
@@ -27,7 +28,7 @@ public class AnswersServiceJsonGitImpl
 
     this.context = context;
     answerArrayList = new ArrayList<>();
-    mQueue = Volley.newRequestQueue(context.fragment.getContext());
+    mQueue = Volley.newRequestQueue(Objects.requireNonNull(context.fragment.getContext()));
 
   }
 

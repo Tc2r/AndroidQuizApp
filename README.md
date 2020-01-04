@@ -1,11 +1,11 @@
 # AndroidQuizApp
 
-A small project I wrote in two days to help people who have trouble with Android Development Terminology. 
+A small project I wrote in two days to help people who have trouble with Android Development Terminology.
 
-A Quiz app that uses fragments, 2  object models, and parses data from my SQL database @ my website in order to populate quizes the user can take, randomly.
+A Quiz app that uses fragments, 2  object models, and parses data from my SQL database @ my website in order to populate quizzes the user can take, randomly.
 
 
-Updated UI: 
+Updated UI:
 
 ![preview01](https://github.com/Tc2r1/AndroidQuizApp/blob/master/preview/preview_01.png)
 

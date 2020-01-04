@@ -66,7 +66,7 @@ public class AnswersController
     Answer answer4 = new Answer();
     answer4.setAnswer("It provides information of available components provided by the system to " + "be invoked.");
     answer4.setDetails(
-        "Implicit Intent doesn't specifiy the component. In such case, intent provides information of available " +
+        "Implicit Intent doesn't specify the component. In such case, intent provides information of available " +
         "components provided by the system that is to be invoked.");
     answersList.add(answer4);
 
@@ -81,14 +81,14 @@ public class AnswersController
     Answer answer6 = new Answer();
     answer6.setAnswer("It provides information of available components provided by the system to " + "be invoked.");
     answer6.setDetails(
-        "Implicit Intent doesn't specifiy the component. In such case, intent " + "provides information of " +
+        "Implicit Intent doesn't specify the component. In such case, intent " + "provides information of " +
         "available components provided by the system that is to be invoked.");
     answersList.add(answer6);
 
     Answer answer7 = new Answer();
     answer7.setAnswer("It provides information of available components provided by the system to " + "be invoked.");
     answer7.setDetails(
-        "Implicit Intent doesn't specifiy the component. In such case, intent " + "provides information of " +
+        "Implicit Intent doesn't specify the component. In such case, intent " + "provides information of " +
         "available components provided by the system that is to be invoked.");
     answersList.add(answer7);
   }
@@ -110,7 +110,7 @@ public class AnswersController
   //
   //      try
   //      {
-  //        // Check for a response, if recieved parse through it and assign rows to Answer Objects.
+  //        // Check for a response, if received parse through it and assign rows to Answer Objects.
   //        Response response = client.newCall(request).execute();
   //        JSONArray array = new JSONArray(response.body().string());
   //
