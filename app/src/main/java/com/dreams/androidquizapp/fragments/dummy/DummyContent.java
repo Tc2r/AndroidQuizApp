@@ -10,8 +10,7 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * Helper class for providing sample content for user interfaces created by
- * Android template wizards.
+ * Helper class for providing sample content for user interfaces created by Android template wizards.
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
@@ -48,6 +47,7 @@ public class DummyContent
 
   private static DummyItem createDummyItem(int position)
   {
+
     Random random = new Random();
     String id = String.valueOf(1000 + random.nextInt(2000));
 
@@ -55,21 +55,12 @@ public class DummyContent
     String title = lorem.getWords(2, 5);
 
 
-    String dateString = new StringBuilder()
-                                .append(1+ random.nextInt(11))
-                                .append("/")
-                                .append(1+random.nextInt(29))
-                                .append("/")
-                                .append(1+random.nextInt(29))
-                                .toString();
+    String dateString =
+        new StringBuilder().append(1 + random.nextInt(11)).append("/").append(1 + random.nextInt(29)).append("/")
+            .append(1 + random.nextInt(29)).toString();
 
     String contents = lorem.getParagraphs(1, 1);
     String details = lorem.getParagraphs(1, 1);
-
-
-
-
-
 
 
     return new DummyItem(position, id, title, dateString, makeContents(contents), details);
@@ -88,6 +79,7 @@ public class DummyContent
    */
   public static class DummyItem
   {
+
     public final int position;
     public final String id;
     public final String title;
@@ -95,9 +87,9 @@ public class DummyContent
     public final String content;
     public final String details;
 
-    public DummyItem(int position, String id, String title, String date, String content,
-                     String details)
+    public DummyItem(int position, String id, String title, String date, String content, String details)
     {
+
       this.position = position;
       this.id = id;
       this.title = title;

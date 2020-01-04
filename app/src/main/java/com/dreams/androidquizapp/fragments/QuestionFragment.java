@@ -21,12 +21,9 @@ import androidx.fragment.app.Fragment;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link QuestionFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the {@link
+ * OnFragmentInteractionListener} interface to handle interaction events. Use the {@link QuestionFragment#newInstance}
+ * factory method to create an instance of this fragment.
  */
 public class QuestionFragment extends Fragment implements View.OnClickListener
 {
@@ -66,8 +63,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
   }
 
   /**
-   * Use this factory method to create a new instance of
-   * this fragment using the provided parameters.
+   * Use this factory method to create a new instance of this fragment using the provided parameters.
    *
    * @param question    Accepts a Question object.
    * @param fillAnswers Accepts an array of Incorrect Answer objects
@@ -102,8 +98,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
       mListener = (OnFragmentInteractionListener) context;
     } else
     {
-      throw new RuntimeException(
-              context.toString() + " must implement OnFragmentInteractionListener");
+      throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
     }
   }
 
@@ -320,14 +315,14 @@ public class QuestionFragment extends Fragment implements View.OnClickListener
 
         break;
       case R.id.nextBtn:
-        QuizFragment quizFragment = (QuizFragment)getParentFragment();
+        QuizFragment quizFragment = (QuizFragment) getParentFragment();
         if (quizFragment != null)
         {
           quizFragment.nextQuestion(correct);
         }
         break;
       case R.id.newQuizBtn:
-        QuizFragment refreshFragment = (QuizFragment)getParentFragment();
+        QuizFragment refreshFragment = (QuizFragment) getParentFragment();
         if (refreshFragment != null)
         {
           refreshFragment.restartFragment();

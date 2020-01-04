@@ -18,10 +18,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link OnFragmentInteractionListener} interface
- * to handle interaction events.
+ * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the {@link
+ * OnFragmentInteractionListener} interface to handle interaction events.
  */
 public class ScoreFragment extends Fragment implements View.OnClickListener
 {
@@ -49,8 +47,7 @@ public class ScoreFragment extends Fragment implements View.OnClickListener
       mListener = (OnFragmentInteractionListener) context;
     } else
     {
-      throw new RuntimeException(
-              context.toString() + " must implement OnFragmentInteractionListener");
+      throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
     }
   }
 

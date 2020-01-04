@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply from: '../config/checkstyle.gradle'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -39,3 +39,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
 }
+
+preBuild.dependsOn('checkstyle')
+check.dependsOn('checkstyle')
